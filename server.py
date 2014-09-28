@@ -6,7 +6,6 @@ import sqlite3
 import time
 from flask import Flask, request, g, render_template, redirect
 from plotly.graph_objs import *
-import webbrowser
 py.sign_in("Sunti","h7ov1pwg6p")
 def handNumber(a):
     fingerNum=0
@@ -43,6 +42,7 @@ def cheeper():
 @app.route("/refresh", methods=["POST"])
 def receive_cheep():
     def operate(inputVal):
+        amounts=[0,0,0,0,0,0,0,0,0,0]
         print("FLAGGERAJKHFKJASHJK")
         for a in inputVal.lower():
             amounts[handNumber(a)]+=1
@@ -119,4 +119,3 @@ def operate(inputVal):
         )
     )
     plot_url = py.plot(data, filename='fingerDistribution')
-    #output to https://plot.ly/~Sunti/3/
