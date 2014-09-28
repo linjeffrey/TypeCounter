@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Type Counter</title>
+
+    <!-- Custom CSS -->
+	<link href="{{ url_for('static', filename='css/freelancer.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+	<link href="{{ url_for('static', filename='css/full.css') }}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Home</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#portfolio">Plot</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Georgehe4/TypeCounter">Github</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Put your page content here! -->
+	<header><div class='glorp container'>
+	<div id='clear' class='glorp head'>
+	<h1>Type Counter</h1>
+	<p>Have you ever wondered how often you used each finger while typing a piece of text? No? Well now you know!</p>
+	</div>
+	<div class="glorp">
+	<form id="form1" action='/refresh' method="POST">
+	  <textarea class = 'dark round' placeholder="Enter text here" style="text-align:center; width:50% " name="text" ></textarea>
+	  <br/><div onclick="javascript:document.getElementById('form1').submit();"class="col-lg-8 col-lg-offset-2 text-center">
+					<a class="portfolio-link btn btn-lg btn-outline" data-toggle="modal">
+                        Submit!
+						<div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+	</form>
+	</div>
+	</div>
+	</header>
+	
+<!--Graph-->
+	<section id="portfolio">
+		<div class="col-lg-8 col-lg-offset-2 text-center">
+					<a href="#portfolioModal1" class="portfolio-link btn btn-lg btn-outline" data-toggle="modal">
+                        Keyboard Explanation
+						<div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+				<br/>
+	<div id='plot' class ='glorp container'>
+	<iframe width="800" height='450' frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~Sunti/3.embed?width=800&height=600"></iframe>
+	</div>
+	</section>
+	<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Keyboard Map</h2>
+                            <hr class="star-primary">
+                            <img alt="key map" src="http://www.rapidtyping.com/img/typing-tutor/5-0/moving-hands.png"/>
+                            <p>Image provided by </p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{ url_for('static', filename='js/jquery-1.11.0.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>
