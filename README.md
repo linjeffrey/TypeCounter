@@ -1,4 +1,4 @@
 TypeCounter
 ===========
 Required python libraries:
-ployly
+plotly
