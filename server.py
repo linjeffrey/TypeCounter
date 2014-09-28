@@ -43,10 +43,8 @@ def cheeper():
 def receive_cheep():
     def operate(inputVal):
         amounts=[0,0,0,0,0,0,0,0,0,0]
-        print("FLAGGERAJKHFKJASHJK")
         for a in inputVal.lower():
             amounts[handNumber(a)]+=1
-        print("FLAGGER")
         for i in range(10):
             print('Finger ',i,'was used: ',amounts[i],' times')
         data = Data([
@@ -76,7 +74,6 @@ def receive_cheep():
         )
         fig = Figure(data=data, layout=layout)
         plot_url = py.plot(fig, filename='fingerDistribution')
-    print("44s")
     print(type(request.form["text"]))
     inputVal=request.form["text"]
     print(inputVal)
@@ -87,10 +84,8 @@ if __name__ == "__main__":
     app.run(debug='true')
 
 def operate(inputVal):
-    print("FLAGGERAJKHFKJASHJK")
     for a in inputVal.lower():
         amounts[handNumber(a)]+=1
-    print("FLAGGER")
     for i in range(10):
         print('Finger ',i,'was used: ',amounts[i],' times')
     data = Data([
