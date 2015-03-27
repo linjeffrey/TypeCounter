@@ -13,10 +13,10 @@
     <title>Type Counter</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ url_for('static', filename='css/full.css') }}" rel="stylesheet">
+    <link href="css/full.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,7 +65,7 @@
 	<p>Find out how many times you used each finger while typing!</p>
 	</div>
 	<div class="glorp container">
-	<form action='/refresh' method="POST">
+	<form action='/api/cheep' method="POST">
 	  <textarea class = 'dark round' placeholder="Enter text here" style="text-align:center; width:50% " name="text" form="usrform" ></textarea>
 	  <br/><input class='dark round' type="submit" />
 	</form>
@@ -76,10 +76,10 @@
 	<iframe width="800" height='450' frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~Sunti/3.embed?width=800&height=600"></iframe>
 	</div>
     <!-- jQuery Version 1.11.0 -->
-    <script src="{{ url_for('static', filename='js/jquery-1.11.0.js') }}"></script>
+    <script src="js/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

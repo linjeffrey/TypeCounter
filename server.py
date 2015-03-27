@@ -35,16 +35,14 @@ def close_connection(exception):
         db.close()
 
 @app.route("/")
-def cheeper():
+def typecounter():
     return render_template('index.html')
 
 @app.route("/refresh", methods=["POST"])
-def receive_cheep():
+def receive_type():
     def operate(inputVal):
-        print("FLAGGERAJKHFKJASHJK")
         for a in inputVal.lower():
             amounts[handNumber(a)]+=1
-        print("FLAGGER")
         for i in range(10):
             print('Finger ',i,'was used: ',amounts[i],' times')
         data = Data([
@@ -85,10 +83,8 @@ if __name__ == "__main__":
     app.run(debug='true')
 
 def operate(inputVal):
-    print("FLAGGERAJKHFKJASHJK")
     for a in inputVal.lower():
         amounts[handNumber(a)]+=1
-    print("FLAGGER")
     for i in range(10):
         print('Finger ',i,'was used: ',amounts[i],' times')
     data = Data([
