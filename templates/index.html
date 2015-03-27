@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html class="full" lang="en">
 <!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
 
@@ -12,11 +11,18 @@
 
     <title>Type Counter</title>
 
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/freelancer.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/full.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/full.css') }}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,10 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#portfolio">Plot</a>
                     </li>
                     <li>
-                        <a href="http://github.com/linjeffrey/typecounter">Github</a>
+                        <a href="https://github.com/linjeffrey/TypeCounter">Github</a>
                     </li>
                 </ul>
             </div>
@@ -59,27 +65,74 @@
     </nav>
 
     <!-- Put your page content here! -->
-	<div class='glorp container'>
-	<div id='clear' class='glorp head'>
-	<h1>Type Counter</h1>
-	<p>Find out how many times you used each finger while typing!</p>
-	</div>
-	<div class="glorp container">
-	<form action='/api/cheep' method="POST">
-	  <textarea class = 'dark round' placeholder="Enter text here" style="text-align:center; width:50% " name="text" form="usrform" ></textarea>
-	  <br/><input class='dark round' type="submit" />
-	</form>
-	</div>
-	</div>
-	<br/>
-	<div class ='glorp container'>
-	<iframe width="800" height='450' frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~Sunti/3.embed?width=800&height=600"></iframe>
-	</div>
+    <header><div class='glorp container'>
+    <div id='clear' class='glorp head'>
+    <h1>Type Counter</h1>
+    <p>Have you ever wondered how often you used each finger while typing a piece of text? No? Well now you know!</p>
+    </div>
+    <div class="glorp">
+    <form id="form1" action='/refresh' method="POST">
+      <textarea class = 'dark round' placeholder="Enter text here" style="text-align:center; width:50% " name="text" ></textarea>
+      <br/><div onclick="javascript:document.getElementById('form1').submit();"class="col-lg-8 col-lg-offset-2 text-center">
+                    <a class="portfolio-link btn btn-lg btn-outline" data-toggle="modal">
+                        Submit!
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    </form>
+    </div>
+    </div>
+    </header>
+    
+<!--Graph-->
+    <section id="portfolio">
+        <div style="float:relative; bottom:50px;" class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#portfolioModal1" style="background-color: grey" class="portfolio-link btn btn-lg btn-outline" data-toggle="modal">
+                        Keyboard Explanation
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <br/>
+    <div id='plot' class ='glorp container'>
+    <iframe width="800" height='700' frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~Sunti/3.embed?width=800&height=600"></iframe>
+    </div>
+    </section>
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Keyboard Map</h2>
+                            <hr class="star-primary">
+                            <img alt="key map" src="http://www.rapidtyping.com/img/typing-tutor/5-0/moving-hands.png"/>
+                            <p>Image provided by <a href="http://www.rapidtyping.com/typing-tutor.html">Rapid Typing</a></p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
-
+    <script src="{{ url_for('static', filename='js/jquery-1.11.0.js') }}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
+
